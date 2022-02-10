@@ -9,38 +9,53 @@ the command line to connect to GitHub.
 
 ### Intro to GitHub
 
+GitHub is a host for version control using Git.
 
+### Basic Git Commands
+
+#### Git Stage
+
+Staging a file is the process of preparing a file for a commit in Git. Staging is kept as a separate command from
+commit to let you continue changing files and commit when you are ready, committing only part or all of these changed
+files. Staging is done with the command **git add**:
+
+```
+git add <content>
+```
+
+where <content> is replaced by the file or folder you would like to stage.
+
+#### Git Commit
+
+Committing staged files will commit these files to your local repository.
+
+#### Git Push
+
+The push command uploads your local commits to the remote repository.
+
+#### Git Pull
 
 ### Adding a Local Repository to GitHub
 
-To add a local repository to GitHub, first open a terminal and find your way to the project directory for the project
+First off, you'll need to make a GitHub account and add a repository there which will be your remote repository. 
+Once you've made this repository, under the **Code** tab, select a URL (you can use either the HTTPs, SSH, or Git CLI, 
+but we'll be using HTTP for this tutorial) and copy it to your clipboard. This is your **remote repository URL**.
+
+To add a local repository to GitHub, open a terminal and find your way to the project directory for the project
 you wish to add. Make your root directory a GitHub repository with the command:
 
 ```
 $ git init -b main
 ```
 
-Next, you'll want to **stage** all your files and commit them to GitHub.
-
-#### Git Stage
-
-Staging a file is the process of preparing a file for a commit in Git. Staging is kept as a separate command from
-commit to let you continue changing files and commit when you are ready, committing only part or all of these changed
-files.
-
-Stage all the files in this directory to set up for committing them to GitHub:
+Next, you'll want to **stage** all your files and commit them to GitHub. Stage all the files in this directory to set 
+up for committing them to GitHub:
 
 ```
 $ git add .
 ```
 
-Next, you'll need to **commit** all these staged files to GitHub.
-
-#### Git Commit
-
-Committing staged files will commit these files to your local repository.
-
-Commit these files with the command:
+Next, you'll need to **commit** all these staged files to GitHub. Commit these files with the command:
 
 ```
 $ git commit -m "your-message"
@@ -49,8 +64,6 @@ $ git commit -m "your-message"
 where "your-message" should be replaced by any message of your choice, preferably one that hints at the files committed.
 
 Now, you'll need to **add a remote repository URL** to your project to push your changes to the remote project.
-
-#### Add Remote Repository URL
 
 A remote repository is a repository hosted online which holds your repository and all changes pushed to it. To add this
 remote repository to your local machine for pushing changes to the remote, enter the commands:
@@ -64,13 +77,7 @@ where origin is the remote-name and <URL> is replaced by the remote URL, with th
 ```https://github.com/username/repository-name```.
 
 Now that your remote repository has been added to your local repository, you're ready to **push** your committed files to
-the remote.
-
-#### Git Push
-
-The push command uploads your local commits to the remote repository.
-
-To push your commits to your specified remote repository, enter the following command:
+the remote. To push your commits to your specified remote repository, enter the following command:
 
 ```
 $ git push -u origin main
